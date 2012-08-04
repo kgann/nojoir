@@ -12,8 +12,6 @@
       (conn-fn {:db db-name :user "root" :password "temp!@#$"}))
     (content-type f
       (response-fn (select
-                     tbl (where (if w
-                                  w true))
-                         (fields (if f
-                                  f '*)))
+                     tbl (where (if w w true))
+                         (fields (or f '*)))
         tbl))))
