@@ -1,6 +1,6 @@
 # nojoir
 
-An attempt at a RESTful data access layer for clojure using noir 
+An attempt at a RESTful data access layer using noir
 
 ## Run server
 
