@@ -1,10 +1,9 @@
 (ns nojoir.views.dal
   (:require [nojoir.views.common :as common]
-            [noir.content.getting-started]
             [nojoir.utils :as util])
-  (:use [noir.core   :only [defpage]]
-        [hiccup.core :only [html]]
-        korma.db korma.core))
+  (:use     [noir.core    :only [defpage]]
+            [hiccup.core  :only [html]]
+            korma.db korma.core))
 
 (defpage "/:conn/:db/:tbl.:format" {conn :conn db-name :db tbl :tbl f :format}
   (let [conn-fn     (ns-resolve 'korma.db     (symbol conn))
