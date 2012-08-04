@@ -1,17 +1,23 @@
 # nojoir
 
-A website written in noir. 
+An attempt at a RESTful data access layer for clojure using noir 
 
-## Usage
+## Run server
 
 ```bash
 lein deps
 lein run
 ```
 
-## License
+## Querying
 
-Copyright (C) 2011 FIXME
+```bash
+  localhost:8080/:conn/:db/:table.:format
+```
 
-Distributed under the Eclipse Public License, the same as Clojure.
+Example
 
+```bash
+localhost:8080/mysql/some_database/some_table.json
+localhost:8080/oracle/some_database/some_table.xml
+```
