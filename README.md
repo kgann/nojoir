@@ -2,6 +2,8 @@
 
 An attempt at a RESTful data access layer using noir
 
+This is a work in progress.
+
 ## Run server
 
 ```bash
@@ -9,7 +11,7 @@ lein deps
 lein run
 ```
 
-## Querying
+## Querying - returns all data (select *) - for now!
 
 ```bash
   localhost:8080/:conn/:db/:table.:format
