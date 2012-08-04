@@ -10,7 +10,7 @@
 ; .xml
 (defn xml-ready [col tbl]
   (map #(identity
-          ['tbl {}
+          [tbl {}
             (map vector (keys %) (vals %))])
   col))
 
