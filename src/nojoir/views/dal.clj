@@ -5,11 +5,13 @@
             [noir.response :only [content-type]]
             korma.db korma.core))
 
-(defpage "/:conn/:db/:tbl.:format" {conn :conn db-name :db tbl :tbl f :format}
+(defpage "/:conn/:db/:tbl.:format" {conn :conn db-name :db tbl :tbl f :format w :w}
   (let [conn-fn      (ns-resolve 'korma.db      (symbol conn))
         response-fn  (ns-resolve 'nojoir.utils  (symbol f))]
     (defdb db
       (conn-fn {:db db-name :user "root" :password "temp!@#$"}))
     (content-type f
-      (response-fn
-        (select tbl) tbl))))
+      (response-fn (if w
+                       (select tbl (where w))
+                       (select tbl))
+        tbl))))
