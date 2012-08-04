@@ -11,7 +11,7 @@
     (defdb db
       (conn-fn {:db db-name :user "root" :password "temp!@#$"}))
     (content-type f
-      (response-fn (select
-                     tbl (where (if w w true))
-                         (fields (or f '*)))
+      (response-fn
+        (select tbl (where (if w w true))
+                    (fields (or f '*)))
         tbl))))
