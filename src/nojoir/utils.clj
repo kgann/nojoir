@@ -11,7 +11,8 @@
 (defn xml-ready [col tbl]
   (map #(identity
           ['tbl {}
-          (map vector (keys %) (vals %))]) col))
+            (map vector (keys %) (vals %))])
+  col))
 
 (defn xml [col tbl]
   (emit-str
