@@ -10,7 +10,7 @@
         response-fn  (ns-resolve 'nojoir.utils  (symbol fmt))]
     (defdb db
       (conn-fn {:db db-name :user "root" :password "temp!@#$"}))
-    (content-type f
+    (content-type fmt
       (response-fn ; expects a result set and table name
         (select tbl (where (if w w true))
                     (fields (or f '*)))
