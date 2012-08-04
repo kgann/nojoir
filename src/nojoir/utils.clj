@@ -1,6 +1,6 @@
 (ns nojoir.utils
-  (:use [clojure.data.json :only (json-str)]
-         clojure.data.xml))
+  (:use [clojure.data.json :only [json-str]]
+        [clojure.data.xml  :only [emit-str sexp-as-element]]))
 
 (defn xml-ready [col tbl]
   (map #(identity
