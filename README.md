@@ -11,7 +11,8 @@ lein deps
 lein run
 ```
 
-## Querying - returns all data (select *) - for now!
+## Querying
+#### returns all data (select *) - for now!
 
 ```bash
   localhost:8080/:conn/:db/:table.:format
