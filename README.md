@@ -1,6 +1,6 @@
 # nojoir
 
-An attempt at a RESTful data access layer using noir
+An attempt at a semi-RESTful data access layer using noir
 
 This is a work in progress.
 
