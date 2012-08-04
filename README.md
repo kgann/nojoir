@@ -12,7 +12,7 @@ lein run
 ```
 
 ## Querying
-#### returns all data (select *) - for now!
+#### returns all fields (select *) - for now!
 
 ```bash
   localhost:8080/:conn/:db/:table.:format
