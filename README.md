@@ -22,7 +22,7 @@ lein run
 Example
 
 ```bash
-localhost:8080/mysqlsome_database/some_table.json
+localhost:8080/mysql/some_database/some_table.json
 localhost:8080/oracle/some_database/some_table.xml
 # select * from some_database.some_table
 
