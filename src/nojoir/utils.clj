@@ -18,7 +18,7 @@
   (map #(identity
           [(symbol tbl) {}
             (map vector (keys %) (vals %))])
-  col))
+       col))
 
 (defn xml [col tbl]
   (emit-str

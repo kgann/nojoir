@@ -21,9 +21,10 @@
   (let [conn-fn      (ns-resolve 'korma.db      (symbol conn))
         response-fn  (ns-resolve 'nojoir.utils  (symbol fmt))
         user         (:user util/DB_CONF)
-        pass         (:pass util/DB_CONF)]
+        pass         (:pass util/DB_CONF)
+        host         (:host util/DB_CONF)]
     (defdb db
-      (conn-fn {:db db-name :user user :password pass}))
+      (conn-fn {:host host :db db-name :user user :password pass}))
     (content-type fmt
       (response-fn ; expects a result set and table name
         (sql/select table
