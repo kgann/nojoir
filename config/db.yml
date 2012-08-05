@@ -1,4 +1,9 @@
 db:
-  host: localhost
-  user: root
-  pass: temp!@#$
+  mysql:
+    host: localhost
+    user: root
+    pass: temp!@#$
+  postgres:
+    host: localhost
+    user: kgann
+    pass: 83toddric

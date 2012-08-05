@@ -18,13 +18,16 @@
          ; offset 
          {:keys [conn db-name table fmt where f limit offset]
            :or  {where true, f '*, limit util/MAX_INT, offset 0}}
-  (let [conn-fn      (ns-resolve 'korma.db      (symbol conn))
-        response-fn  (ns-resolve 'nojoir.utils  (symbol fmt))
-        user         (:user util/DB_CONF)
-        pass         (:pass util/DB_CONF)
-        host         (:host util/DB_CONF)]
-    (defdb db
-      (conn-fn {:host host :db db-name :user user :password pass}))
+  (let [kconn        (keyword conn)
+        conn-fn      (ns-resolve 'korma.db (symbol conn))
+        response-fn  (ns-resolve 'nojoir.utils (symbol fmt))
+        user         (:user (kconn util/DB_CONF))
+        pass         (:pass (kconn util/DB_CONF))
+        host         (:host (kconn util/DB_CONF))
+        spec         (conn-fn {:host host :db db-name :user user :password pass})]
+    (def the-db (create-db spec))
+    (connection-pool spec)
+    (default-connection the-db)
     (content-type fmt
       (response-fn ; expects a result set and table name
         (sql/select table
