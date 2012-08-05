@@ -17,7 +17,7 @@
          ; limit
          ; offset 
          {:keys [conn db-name table fmt where f limit offset]
-           :or  {where true, f '*, limit util/MAX_INT, offset 0}}
+          :or  {where true, f '*, limit util/MAX_INT, offset 0}}
   (let [kconn        (keyword conn)
         conn-fn      (ns-resolve 'korma.db (symbol conn))
         response-fn  (ns-resolve 'nojoir.utils (symbol fmt))
@@ -26,8 +26,8 @@
         host         (:host (kconn util/DB_CONF))
         spec         (conn-fn {:host host :db db-name :user user :password pass})
         db           (create-db spec)]
-    (connection-pool spec)
-    (default-connection db)
+    (connection-pool spec) ; add this db spec to connection pool
+    (default-connection db) ; make sure we use this db for the next query
     (content-type fmt
       (response-fn ; expects a result set and table name
         (sql/select table
