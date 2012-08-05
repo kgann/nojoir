@@ -15,10 +15,10 @@ lein run
 
 ```bash
   localhost:8080/:conn/:db/:table.:format
-  localhost:8080/:conn/:db/:table.:format?w[:col]=:val&w[:b]=:val
-  localhost:8080/:conn/:db/:table.:format?w[:col]=:val&w[:b]=:val&f=a,b
-  localhost:8080/:conn/:db/:table.:format?w[:col]=:val&w[:b]=:val&f=a,b&limit=10
-  localhost:8080/:conn/:db/:table.:format?w[:col]=:val&w[:b]=:val&f=a,b&limit=10&offset=5
+  localhost:8080/:conn/:db/:table.:format?w[col]=val&w[b]=val
+  localhost:8080/:conn/:db/:table.:format?f=a,b
+  localhost:8080/:conn/:db/:table.:format?limit=10
+  localhost:8080/:conn/:db/:table.:format?offset=5
 ```
 
 Example
