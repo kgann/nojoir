@@ -1,6 +1,12 @@
 (ns nojoir.utils
-  (:use [clojure.data.json :only [json-str]]
-        [clojure.data.xml  :only [emit-str sexp-as-element]]))
+  (:require [clj-yaml.core     :as yml])
+  (:use     [clojure.data.json :only [json-str]]
+            [clojure.data.xml  :only [emit-str sexp-as-element]]))
+
+(def MAX_INT (. Integer MAX_VALUE)) ; for LIMIT
+
+(def DB_CONF (:db
+              (yml/parse-string (slurp "./config/db.yml"))))
 
 ; RESPONSE TYPES
 ; .json

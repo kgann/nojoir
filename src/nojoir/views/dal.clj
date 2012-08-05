@@ -6,8 +6,6 @@
             [noir.response :only [content-type]]
             korma.db))
 
-(def MAX_INT (. Integer MAX_VALUE)) ; for LIMIT
-
 (defpage "/:conn/:db-name/:table.:fmt"
          ; conn    - connection type (mysql, oracle, postgres)
          ; db-name - database name
@@ -19,11 +17,13 @@
          ; limit
          ; offset 
          {:keys [conn db-name table fmt where f limit offset]
-           :or  {where true, f '*, limit MAX_INT, offset 0}}
+           :or  {where true, f '*, limit util/MAX_INT, offset 0}}
   (let [conn-fn      (ns-resolve 'korma.db      (symbol conn))
-        response-fn  (ns-resolve 'nojoir.utils  (symbol fmt))]
+        response-fn  (ns-resolve 'nojoir.utils  (symbol fmt))
+        user         (:user util/DB_CONF)
+        pass         (:pass util/DB_CONF)]
     (defdb db
-      (conn-fn {:db db-name :user "root" :password "temp!@#$"}))
+      (conn-fn {:db db-name :user user :password pass}))
     (content-type fmt
       (response-fn ; expects a result set and table name
         (sql/select table
