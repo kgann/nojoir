@@ -17,6 +17,8 @@ lein run
   localhost:8080/:conn/:db/:table.:format
   localhost:8080/:conn/:db/:table.:format?w[:col]=:val&w[:b]=:val
   localhost:8080/:conn/:db/:table.:format?w[:col]=:val&w[:b]=:val&f=a,b
+  localhost:8080/:conn/:db/:table.:format?w[:col]=:val&w[:b]=:val&f=a,b&limit=10
+  localhost:8080/:conn/:db/:table.:format?w[:col]=:val&w[:b]=:val&f=a,b&limit=10&offset=5
 ```
 
 Example
@@ -31,4 +33,10 @@ localhost:8080/mysql/some_database/some_table.json?w[a]=1&w[b]=2
 
 localhost:8080/mysql/some_database/some_table.json?w[a]=1&w[b]=2&f=a,c
 # select a, c from some_database.some_table where a = 1 and b = 2
+
+localhost:8080/:conn/:db/:table.:format?w[:col]=:val&w[:b]=:val&f=a,b&limit=10
+# select a, c from some_database.some_table where a = 1 and b = 2 limit 10
+
+localhost:8080/:conn/:db/:table.:format?w[:col]=:val&w[:b]=:val&f=a,b&limit=10&offset=5
+# select a, c from some_database.some_table where a = 1 and b = 2 limit 5, 10
 ```
