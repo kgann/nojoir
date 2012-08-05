@@ -17,7 +17,7 @@
          ; limit
          ; offset 
          {:keys [conn db-name table fmt where f limit offset]
-          :or  {where true, f '*, limit util/MAX_INT, offset 0}}
+          :or   {where true, f '*, limit util/MAX_INT, offset 0}}
   (let [kconn        (keyword conn)
         conn-fn      (ns-resolve 'korma.db (symbol conn))
         response-fn  (ns-resolve 'nojoir.utils (symbol fmt))
