@@ -24,10 +24,10 @@
         user         (:user (kconn util/DB_CONF))
         pass         (:pass (kconn util/DB_CONF))
         host         (:host (kconn util/DB_CONF))
-        spec         (conn-fn {:host host :db db-name :user user :password pass})]
-    (def the-db (create-db spec))
+        spec         (conn-fn {:host host :db db-name :user user :password pass})
+        db           (create-db spec)]
     (connection-pool spec)
-    (default-connection the-db)
+    (default-connection db)
     (content-type fmt
       (response-fn ; expects a result set and table name
         (sql/select table
