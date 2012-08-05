@@ -6,7 +6,7 @@
 (def MAX_INT (. Integer MAX_VALUE)) ; for LIMIT
 
 (def DB_CONF (:db
-              (yml/parse-string (slurp "./config/db.yml"))))
+              (yml/parse-string (slurp "config/db.yml"))))
 
 ; RESPONSE TYPES
 ; .json
