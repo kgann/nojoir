@@ -11,6 +11,20 @@ lein deps
 lein run
 ```
 
+## Setup
+  Provide config information for each db connection you will be using in config/db.yml
+  Be sure to include the jars (mysql, postgres etc...) in project.clj
+```bash
+  mysql:
+    host: localhost
+    user: username
+    pass: password
+  postgres:
+    host: localhost
+    user: username
+    pass: password
+```
+
 ## Querying
 
 ```bash
