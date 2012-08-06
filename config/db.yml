@@ -5,5 +5,5 @@ db:
     pass: temp!@#$
   postgres:
     host: localhost
-    user: kgann
-    pass: 83toddric
+    user: temp
+    pass: temp!@#$
