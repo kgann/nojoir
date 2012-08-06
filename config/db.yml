@@ -1,9 +1,8 @@
-db:
-  mysql:
-    host: localhost
-    user: root
-    pass: temp!@#$
-  postgres:
-    host: localhost
-    user: temp
-    pass: temp!@#$
+mysql:
+  host: localhost
+  user: root
+  pass: temp!@#$
+postgres:
+  host: localhost
+  user: temp
+  pass: temp!@#$
