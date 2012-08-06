@@ -39,7 +39,7 @@ Example
 
 ```bash
 localhost:8080/mysql/some_database/some_table.json
-localhost:8080/oracle/some_database/some_table.xml
+localhost:8080/postgres/some_database/some_table.xml
 # select * from some_database.some_table
 
 localhost:8080/mysql/some_database/some_table.json?where[a]=1&where[b]=2
@@ -48,9 +48,9 @@ localhost:8080/mysql/some_database/some_table.json?where[a]=1&where[b]=2
 localhost:8080/mysql/some_database/some_table.json?f=a,c
 # select a, c from some_database.some_table
 
-localhost:8080/mysql/some_database/some_table.json?f=a,c&limit=10
+localhost:8080/postgres/some_database/some_table.json?f=a,c&limit=10
 # select a, c from some_database.some_table limit 10
 
-localhost:8080/mysql/some_database/some_table.json?limit=10&offset=5
+localhost:8080/postgres/some_database/some_table.json?limit=10&offset=5
 # select * from some_database.some_table limit 5, 10
 ```
